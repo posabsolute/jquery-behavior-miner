@@ -1,0 +1,27 @@
+{
+    "name": "logBehavior",
+    "title": "Agitated User Tracking Behavior",
+    "description": "This plugin tracks behaviors that are considered agitated. The plugin emit an event that can be logged in your system, or on Google Analitics (this plugin is included).",
+    "keywords": [
+        "behavior",
+        "track"
+    ],
+    "version": "0.1.0",
+    "author": {
+        "name": "Cedric Dugas",
+        "url": "http://www.position-relative.net"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "http://opensource.org/licenses/MIT"
+        }
+    ],
+    "bugs": "https://github.com/jquery/jquery-color/issues",
+    "homepage": "https://github.com/jquery/jquery-color",
+    "docs": "https://github.com/jquery/jquery-color",
+    "download": "http://code.jquery.com/#color",
+    "dependencies": {
+        "jquery": ">=1.9"
+    }
+}

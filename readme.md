@@ -1,17 +1,17 @@
 ## Agitated User Tracking Behavior jQuery Plugin
 
-This plugin tracks behaviors that are considered agitated. The plugin emit an event that can be logged in your system, or on Google Analitics (this plugin is included).
+This plugin tracks behaviors that are considered agitated. The plugin emit events that can be logged in your system, or on Google Analytics (GA plugin  included).
 
-You can also act on those behaviors by, for example, emittings popovers to better guide your user thought process. 
+You can also act on those behaviors by, for example, emittings popovers to better guide your user. 
 
 ## Behaviors tracked
 
-All behaviors sensibility are modifiable.
+All behaviors sensibilities are modifiable.
 
-	Hitting multiple time rapidly a keyboard key
-	Maintaining multiple keyboard key at the same time
-	Clicking multiple time a dom element (generally buttons)
-	Highlighting text
++ Hitting multiple time rapidly a keyboard key
++ Maintaining multiple keyboard key at the same time
++ Clicking multiple time a dom element (generally buttons)
++ Highlighting text
 
 ## Installation
 
@@ -22,6 +22,7 @@ Include the plugin into your website or code, if you want to connect with Google
 	<script src="js/jquery.logbehavior.ga.js" type="text/javascript" charset="utf-8"></script>
 
 After you can simply start the plugin on the document :
+
 	<script>$(document).logBehavior();</script>
 
 ## Options
@@ -66,10 +67,10 @@ Depending of what type of events you log the data will change a bit, for keyboar
 
 ### All the current event types name
 
-	+ multiple_keys_hold
-	+ same_key_hit_multiple
-	+ text_highlight
-	+ multiple_clicks
++ multiple_keys_hold
++ same_key_hit_multiple
++ text_highlight
++ multiple_clicks
 
 
 ## Connecting to Google analitics and others

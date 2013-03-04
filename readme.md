@@ -39,8 +39,10 @@ The are multiple options included, most importantly you can change the sensibili
             },
             sensibility : {
                 clicks : 3, // number of click before logging
+                key : 3,  // number of same key hit before logging
                 multiplePress : 4, // number of click pressed at the same time before logging,
-                keyTime : 1000 // time elapsed for hitting the same key
+                keyTime : 1000, // time elapsed for hitting the same key
+                clickTime : 1000 // time elapsed for hitting for clicking the same dom element
             }
         };
 	</script>

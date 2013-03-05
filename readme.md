@@ -54,12 +54,13 @@ The are multiple options included, most importantly you can change the sensibili
 
 The plugin will emit a jquery event on the document that you can catch to act or save data.
 
-$(document).on("log_user_behavior", function(e,data){
-	console.log(data);
-});
+	$(document).on("log_user_behavior", function(e,data){
+		console.log(data);
+	});
 
 Example of the data returned:
-	 {
+
+	{
 	    keys : [multiplekeys],
 	    timestamp : 234234234234, // javascript timestamp
 	    url : "http://www.google.com/",

@@ -17,8 +17,8 @@
             "url": "http://opensource.org/licenses/MIT"
         }
     ],
-    "bugs": "https://github.com/jquery/jquery-color/issues",
-    "homepage": "https://github.com/jquery/jquery-color",
+    "bugs": "https://github.com/posabsolute/jquery-behavior-miner/issues",
+    "homepage": "https://github.com/posabsolute/jquery-behavior-miner",
     "dependencies": {
         "jquery": ">=1.9"
     }

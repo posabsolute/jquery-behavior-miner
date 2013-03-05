@@ -1,8 +1,8 @@
-## Agitated User Tracking Behavior jQuery Plugin
+## Agitated User Behavior data miner (jQuery Plugin)
 
 This plugin tracks behaviors that are considered agitated. The plugin emit events that can be logged in your system, or on Google Analytics (GA plugin  included).
 
-You can also act on those behaviors by, for example, emittings popovers to better guide your user. 
+You can also act on those behaviors by, for example, showing popovers to better guide your user. 
 
 ## Behaviors tracked
 
@@ -15,35 +15,37 @@ All behaviors sensibilities are modifiable.
 
 ## Installation
 
-Include the plugin into your website or code, if you want to connect with Google Analitics you must also include the GA file like below.
+Include the plugin into your website or code, if you want to connect with Google Analytics you must also include the GA file like below.
 
-	<script src="js/jquery.logbehavior.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery.behaviorminer.min.js" type="text/javascript" charset="utf-8"></script>
 	<!-- below is the google analitycs plugin -->
-	<script src="js/jquery.logbehavior.ga.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery.behaviorminer.ga.js" type="text/javascript" charset="utf-8"></script>
 
 After you can simply start the plugin on the document :
 
-	<script>$(document).logBehavior();</script>
+	<script>$(document).behaviorMiner();</script>
 
 ## Options
 The are multiple options included, most importantly you can change the sensibility of the tracked behavior to better fit your situation. The options presented below are default to the application.
 
 	<script>
 		{
-            dataConnector: false, // change to plugin name (example: ga)
+            connector: false, // change to plugin name (example: "ga")
             track : {
-                mouseMovement:true,
-                keyboard:true,
-                click:true,
-                textHightlight:true
+                keymultiplepress:true,
+                repeatkey:true,
+                multipleclick:true,
+                longclick:true,
+                texthighlight:true
             },
             sensibility : {
-                clicks : 3, // number of click before logging
-                key : 3,  // number of same key hit before logging
-                multiplePress : 4, // number of click pressed at the same time before logging,
-                keyTime : 1000, // time elapsed for hitting the same key
-                clickTime : 1000 // time elapsed for hitting for clicking the same dom element
-            }
+                multipleclick : 3, // number of click before logging
+                multipleclicktime : 1000, // time elapsed for hitting for clicking the same dom element
+                repeatkey : 3,  // number of same key hit before logging
+                repeatkeytime : 1000, // time elapsed for hitting the same key
+                keymultiplepress : 4, // number of click pressed at the same time before logging
+                longclick: 3000 // time elapsed before conseding a long click
+             }
         };
 	</script>
 
@@ -73,17 +75,43 @@ Depending of what type of events you log the data will change a bit, for keyboar
 + same_key_hit_multiple
 + text_highlight
 + multiple_clicks
++ long_clicks
 
-
-## Connecting to Google analitics and others
+## Connecting to Google analytics and others
 
 logBehavior has a simple plugin architecture, the GA plugin already use it, to enable GA or create your own connector here what you can do.
 
-In the case of google analitycs the only things to do is enable the data connector and included the javascript file 
+In the case of google analytics the only things to do is enable the data connector and include the javascript file 
 
-	<script>$(document).logBehavior({dataConnector:"ga"});</script>
+	<script>$(document).behaviorMiner({dataConnector:"ga"});</script>
 
-If you want to create your own connector please base yourself on the plugin provided (jquery.logbehavior.ga.js). Change for your own connector name, when the plugin is intanciated the *init()* function will be automatically loaded.
+If you want to create your own connector please base yourself on the plugin provided (jquery.behaviorMiner.ga.js). Change for your own connector name, when the plugin is intanciated the *init()* function will be automatically loaded.
+
+## Adding behaviors
+
+To add behavior, add your own js file into /behaviors, follow this naming convention
+
+	$.behaviorMiner.behaviors.name
+
+After that, when launching the plugin add the behavior name to the track option
+
+	<script>$(document).behaviorMiner({track:{name:true}});</script>
+
+When the script init your behavior it going to call the *load()* method and pass the options as  the first parameters.
+
+When your done with your behavior you can send back the data using 
+
+	$(document).trigger("behaviorMiner_data", [data]);
+
+### Adding your new behavior to the minified file
+
+You can always simply add your behavior file below the plugin in the html document like this:
+
+	<script src="js/jquery.behaviorminer.min.js" type="text/javascript" charset="utf-8"></script>
+	<!-- below is the google analitycs plugin -->
+	<script src="js/behavior/name.js" type="text/javascript" charset="utf-8"></script>
+
+Or you can compile your behavior in using grunt, load npm install, then just do grunt. You must comply with jslint before a compilation is done.
 
 ## Contributors
 

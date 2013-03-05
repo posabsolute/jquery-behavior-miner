@@ -2,20 +2,20 @@
 <html lang="en">
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
-		<title>Agitated User Tracking Behavior</title>
+		<title>Agitated User Behavior data miner</title>
 		<script type="text/javascript" src="js/jquery.js"></script>
-		<script type="text/javascript" src="js/jquery.logbehavior.js"></script>
-		<script type="text/javascript" src="js/connectors/jquery.logbehavior.test.js"></script>
+		<script type="text/javascript" src="js/jquery.behaviorminer.min.js"></script>
+		<script type="text/javascript" src="js/connectors/test.js"></script>
 	</head>
 	<body>
-
+		<p>The events are currently logged in your console.log</p>
 		<div id="textselected"><p>Select text test</p></div>
 		<a id="btnTestClick"  href="" onclick="return false;" class="cliker">Test for click button</a>
 		<script>
 
 		</script>
 
-		<script>$(document).logBehavior();</script>
+		<script>$(document).behaviorMiner({connector:"test"});</script>
 	</body>
 
 </html>

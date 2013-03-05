@@ -19,7 +19,7 @@ Include the plugin into your website or code, if you want to connect with Google
 
 	<script src="js/jquery.behaviorminer.min.js" type="text/javascript" charset="utf-8"></script>
 	<!-- below is the google analitycs plugin -->
-	<script src="js/jquery.behaviorminer.ga.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/connectors/ga.js" type="text/javascript" charset="utf-8"></script>
 
 After you can simply start the plugin on the document :
 

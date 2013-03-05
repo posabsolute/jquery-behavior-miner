@@ -1,11 +1,10 @@
 ;(function ( $, window, document, undefined ) {
 	$.behaviorMiner.behaviors.repeatkey = {
-        load : function (options) {
+        load : function () {
             var self = this,
                 samekey = 0,
                 sametimes = 0,
                 timestamp = 0;
-            this.options = options;
 
             function logit(key) {
                 var data = {

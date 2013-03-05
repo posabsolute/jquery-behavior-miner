@@ -40,12 +40,14 @@
                 self = this;
             // Load dataConnector plugin and pass options to init
             if($.behaviorMiner.connectors[this.options.connector] && $.behaviorMiner.connectors[this.options.connector].init){
-                $.behaviorMiner.connectors[this.options.connector].init(this.options);
+                $.behaviorMiner.connectors[this.options.connector].options = this.options;
+                $.behaviorMiner.connectors[this.options.connector].init();
             }
             // load all behaviors
             $.each(trackOptions, function(behavior, state){
                 if(state && $.behaviorMiner.behaviors[behavior] && $.behaviorMiner.behaviors[behavior].load)
-                    $.behaviorMiner.behaviors[behavior].load(self.options);
+                    $.behaviorMiner.behaviors[behavior].options = self.options;
+                    $.behaviorMiner.behaviors[behavior].load();
             });
             // receive data from behaviors
             $(document).on("behaviorMiner_data", function(e,data){

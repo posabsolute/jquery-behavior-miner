@@ -1,7 +1,6 @@
 ;(function ( $, window, document, undefined ) {
     $.behaviorMiner.behaviors.texthighlight = {
-        load : function (options) {
-            this.options = options;
+        load : function () {
             $(document).on("mouseup.behaviorMiner", "*", function(){
                 var html = '',
                     parentEl;

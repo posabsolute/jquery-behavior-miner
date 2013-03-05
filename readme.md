@@ -15,18 +15,18 @@ All behaviors sensibilities are modifiable.
 
 ## Installation
 
-Include the plugin into your website or code, if you want to connect with Google Analytics you must also include the GA file like below.
+Include the plugin into your html, if you want to connect with Google Analytics you must also include the GA file like below.
 
-	<script src="js/jquery.behaviorminer.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery.behaviorminer.min.js" type="text/javascript"></script>
 	<!-- below is the google analitycs plugin -->
-	<script src="js/connectors/ga.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/connectors/ga.js" type="text/javascript"></script>
 
-After you can simply start the plugin on the document :
+After you can start the plugin on the document:
 
 	<script>$(document).behaviorMiner();</script>
 
 ## Options
-The are multiple options included, most importantly you can change the sensibility of the tracked behavior to better fit your situation. The options presented below are default to the application.
+The are multiple options included, most importantly you can change the sensibility of the tracked behaviors to better fit your situation. The options presented below are default to the application.
 
 	<script>
 		{
@@ -68,9 +68,9 @@ Example of the data returned:
 	    behavior : "User is hitting multiple keyboard keys at once"
 	};
 
-Depending of what type of events you log the data will change a bit, for keyboards event the plugin returns the keys, but for click events we return the element clicked.
+Depending of what type of events you are logging the data will minimally change, for keyboard events the plugin return the keys, but for clicks it return the element clicked.
 
-### All the current event types name
+### All the current event type names
 
 + multiple_keys_hold
 + same_key_hit_multiple
@@ -82,11 +82,13 @@ Depending of what type of events you log the data will change a bit, for keyboar
 
 behaviorMiner has a simple plugin architecture, the GA plugin already use it, to enable GA or create your own connector here what you can do.
 
-In the case of google analytics the only things to do is enable the data connector and include the javascript file 
+In the case of google analytics only enable the data connector and include the javascript file 
 
 	<script>$(document).behaviorMiner({dataConnector:"ga"});</script>
 
 If you want to create your own connector please base yourself on the plugin provided (jquery.behaviorMiner.ga.js). Change for your own connector name, when the plugin is intanciated the *init()* function will be automatically loaded.
+
+The options are automatically passed to the connectors, you can retrive them using *this.options*.
 
 ## Adding behaviors
 
@@ -98,9 +100,9 @@ After that, when launching the plugin add the behavior name to the track option
 
 	<script>$(document).behaviorMiner({track:{name:true}});</script>
 
-When the script init your behavior it will call the *load()* method and pass the options as the first parameter.
+When the script init your behavior it will call the *load()* method.  The options are automatically passed to the behaviors, you can retrive them using *this.options*.
 
-When your done with your behavior you can send back the data using 
+When you are done with your behavior you can send back the data using 
 
 	$(document).trigger("behaviorMiner_data", [data]);
 
@@ -112,7 +114,7 @@ You can always simply add your behavior file below the plugin in the html docume
 	<!-- below is the google analitycs plugin -->
 	<script src="js/behavior/name.js" type="text/javascript" charset="utf-8"></script>
 
-Or you can compile your behavior in using grunt, load npm install, then just do grunt and it's all automatic. You must comply with jslint before a compilation is done.
+Or you can compile your behavior in the minified script using grunt, first *load npm install* to install dependencies, then just do grunt and it's all automatic. You must comply with jslint before a compilation is completed. If that sound complicated please check gruntjs, it should be simple to pick it up from there.
 
 ## Contributors
 

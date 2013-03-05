@@ -1,9 +1,8 @@
 ;(function ( $, window, document, undefined ) {
 	$.behaviorMiner.behaviors.keymultiplepress = {
-        load : function(options) {
+        load : function() {
             var self = this,
                 multiplekeys = [];
-            this.options = options;
             $(document).on("keydown.logbehavior", function(e){
                 multiplekeys[e.which] = true;
                 //if(multiplekeys.filter(String).length >= self.options.sensibility.multiplePress){

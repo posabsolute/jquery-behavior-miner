@@ -1,10 +1,8 @@
 ;(function ( $, window, document, undefined ) {
 	$.behaviorMiner.behaviors.multipleclick = {
-		load : function(options)  {
+		load : function()  {
             var self = this;
-            this.options = options;
             $(document).on("click", "*", function(event){
-                event.stopPropagation();
                 var elem = this,
                     $elem = jQuery(elem),
                     clicks = $elem.data('clicks') || 0,

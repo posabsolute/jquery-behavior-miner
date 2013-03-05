@@ -80,7 +80,7 @@ Depending of what type of events you log the data will change a bit, for keyboar
 
 ## Connecting to Google analytics and others
 
-logBehavior has a simple plugin architecture, the GA plugin already use it, to enable GA or create your own connector here what you can do.
+behaviorMiner has a simple plugin architecture, the GA plugin already use it, to enable GA or create your own connector here what you can do.
 
 In the case of google analytics the only things to do is enable the data connector and include the javascript file 
 
@@ -90,7 +90,7 @@ If you want to create your own connector please base yourself on the plugin prov
 
 ## Adding behaviors
 
-To add behavior, add your own js file into /behaviors, follow this naming convention
+To add a behavior, first add your own js file into /behaviors, follow this namespace convention
 
 	$.behaviorMiner.behaviors.name
 
@@ -98,7 +98,7 @@ After that, when launching the plugin add the behavior name to the track option
 
 	<script>$(document).behaviorMiner({track:{name:true}});</script>
 
-When the script init your behavior it going to call the *load()* method and pass the options as  the first parameters.
+When the script init your behavior it will call the *load()* method and pass the options as the first parameter.
 
 When your done with your behavior you can send back the data using 
 
@@ -112,7 +112,7 @@ You can always simply add your behavior file below the plugin in the html docume
 	<!-- below is the google analitycs plugin -->
 	<script src="js/behavior/name.js" type="text/javascript" charset="utf-8"></script>
 
-Or you can compile your behavior in using grunt, load npm install, then just do grunt. You must comply with jslint before a compilation is done.
+Or you can compile your behavior in using grunt, load npm install, then just do grunt and it's all automatic. You must comply with jslint before a compilation is done.
 
 ## Contributors
 

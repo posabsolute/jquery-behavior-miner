@@ -40,12 +40,14 @@
                 self = this;
             // Load dataConnector plugin and pass options to init
             if($.behaviorMiner.connectors[this.options.connector] && $.behaviorMiner.connectors[this.options.connector].init){
-                $.behaviorMiner.connectors[this.options.connector].init(this.options);
+                $.behaviorMiner.connectors[this.options.connector].options = this.options;
+                $.behaviorMiner.connectors[this.options.connector].init();
             }
             // load all behaviors
             $.each(trackOptions, function(behavior, state){
                 if(state && $.behaviorMiner.behaviors[behavior] && $.behaviorMiner.behaviors[behavior].load)
-                    $.behaviorMiner.behaviors[behavior].load(self.options);
+                    $.behaviorMiner.behaviors[behavior].options = self.options;
+                    $.behaviorMiner.behaviors[behavior].load();
             });
             // receive data from behaviors
             $(document).on("behaviorMiner_data", function(e,data){
@@ -87,10 +89,9 @@
 
 })( jQuery, window, document );;(function ( $, window, document, undefined ) {
 	$.behaviorMiner.behaviors.keymultiplepress = {
-        load : function(options) {
+        load : function() {
             var self = this,
                 multiplekeys = [];
-            this.options = options;
             $(document).on("keydown.logbehavior", function(e){
                 multiplekeys[e.which] = true;
                 //if(multiplekeys.filter(String).length >= self.options.sensibility.multiplePress){
@@ -112,16 +113,14 @@
 	};
 })( jQuery, window, document );;(function ( $, window, document, undefined ) {
 	$.behaviorMiner.behaviors.longclick = {
-		load : function(options)  {
+		load : function()  {
 			var pressTimer,
             self = this;
-            this.options = options;
 
             $(document).on("mouseup.behaviorMiner", "*",function(e){
-                e.stopPropagation();
                 clearTimeout(pressTimer);
             }).on("mousedown.behaviorMiner", "*", function(e){
-              e.stopPropagation();
+              console.log(e)
               var el = this;
               pressTimer = window.setTimeout(function() {
                 self.logData(el);
@@ -146,11 +145,9 @@
 	};
 })( jQuery, window, document );;(function ( $, window, document, undefined ) {
 	$.behaviorMiner.behaviors.multipleclick = {
-		load : function(options)  {
+		load : function()  {
             var self = this;
-            this.options = options;
             $(document).on("click", "*", function(event){
-                event.stopPropagation();
                 var elem = this,
                     $elem = jQuery(elem),
                     clicks = $elem.data('clicks') || 0,
@@ -190,12 +187,11 @@
 	};
 })( jQuery, window, document );;(function ( $, window, document, undefined ) {
 	$.behaviorMiner.behaviors.repeatkey = {
-        load : function (options) {
+        load : function () {
             var self = this,
                 samekey = 0,
                 sametimes = 0,
                 timestamp = 0;
-            this.options = options;
 
             function logit(key) {
                 var data = {
@@ -228,8 +224,7 @@
 	};
 })( jQuery, window, document );;(function ( $, window, document, undefined ) {
     $.behaviorMiner.behaviors.texthighlight = {
-        load : function (options) {
-            this.options = options;
+        load : function () {
             $(document).on("mouseup.behaviorMiner", "*", function(){
                 var html = '',
                     parentEl;

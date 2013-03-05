@@ -3,6 +3,7 @@
 		load : function()  {
             var self = this;
             $(document).on("click", "*", function(event){
+                event.stopPropagation();
                 var elem = this,
                     $elem = jQuery(elem),
                     clicks = $elem.data('clicks') || 0,

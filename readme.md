@@ -11,6 +11,7 @@ All behaviors sensibilities are modifiable.
 + Hitting multiple time rapidly a keyboard key
 + Maintaining multiple keyboard key at the same time
 + Clicking multiple time a dom element (generally buttons)
++ Maintaining a long click a dom element (generally buttons)
 + Highlighting text
 
 ## Installation

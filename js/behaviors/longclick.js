@@ -5,8 +5,10 @@
             self = this;
 
             $(document).on("mouseup.behaviorMiner", "*",function(e){
+                e.stopPropagation();
                 clearTimeout(pressTimer);
             }).on("mousedown.behaviorMiner", "*", function(e){
+              e.stopPropagation();
               var el = this;
               pressTimer = window.setTimeout(function() {
                 self.logData(el);

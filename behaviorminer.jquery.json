@@ -1,5 +1,5 @@
 {
-    "name": "behavior-miner",
+    "name": "behaviorminer",
     "title": "Agitated User Behavior Data Miner",
     "description": "This plugin tracks behaviors that are considered agitated. The plugin emit an event that can be logged in your system, or on Google Analitics (this plugin is included).",
     "keywords": [

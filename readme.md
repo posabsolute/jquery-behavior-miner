@@ -26,6 +26,7 @@ After you can start the plugin on the document:
 
 	<script>$(document).behaviorMiner();</script>
 
+
 ## Options
 The are multiple options included, most importantly you can change the sensibility of the tracked behaviors to better fit your situation. The options presented below are default to the application.
 

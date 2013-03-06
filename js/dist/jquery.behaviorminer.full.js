@@ -17,12 +17,12 @@
                 texthighlight:true
             },
             sensibility : {
-                multipleclick : 3, // number of click before logging
+                multipleclick : 4, // number of click before logging
                 multipleclicktime : 1000, // time elapsed for hitting for clicking the same dom element
-                repeatkey : 3,  // number of same key hit before logging
+                repeatkey : 4,  // number of same key hit before logging
                 repeatkeytime : 1000, // time elapsed for hitting the same key
                 keymultiplepress : 4, // number of click pressed at the same time before logging
-                longclick: 3000 // time elapsed before conseding a long click
+                longclick: 4000 // time elapsed before conseding a long click
             }
         };
 
@@ -59,6 +59,8 @@
             $(document).off("mousedown.behaviorMiner");
             $(document).off("keydown.behaviorMiner");
             $(document).off("keyup.behaviorMiner");
+            $(document).off("click.behaviorMiner");
+            $(document).off("behaviorMiner_data");
             $(document).off("log_multiple_click");
         },
         enable : function () {
@@ -118,9 +120,10 @@
             self = this;
 
             $(document).on("mouseup.behaviorMiner", "*",function(e){
+                e.stopPropagation();
                 clearTimeout(pressTimer);
             }).on("mousedown.behaviorMiner", "*", function(e){
-              console.log(e)
+              e.stopPropagation();
               var el = this;
               pressTimer = window.setTimeout(function() {
                 self.logData(el);
@@ -147,7 +150,8 @@
 	$.behaviorMiner.behaviors.multipleclick = {
 		load : function()  {
             var self = this;
-            $(document).on("click", "*", function(event){
+            $(document).on("click.behaviorMiner", "*", function(event){
+                event.stopPropagation();
                 var elem = this,
                     $elem = jQuery(elem),
                     clicks = $elem.data('clicks') || 0,

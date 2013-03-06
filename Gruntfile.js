@@ -16,13 +16,13 @@ module.exports = function (grunt) {
             },
             dist: {
               src: ['js/jquery.behaviorminer.js', 'js/behaviors/*.js'],
-              dest: 'js/jquery.behaviorminer.full.js'
+              dest: 'js/dist/jquery.behaviorminer.full.js'
             }
         },
         uglify: {
             target: {
               files: {
-                'js/jquery.behaviorminer.min.js': ['js/jquery.behaviorminer.js', 'js/behaviors/*.js']
+                'js/dist/jquery.behaviorminer.min.js': ['js/jquery.behaviorminer.js', 'js/behaviors/*.js']
             }
         }
   }

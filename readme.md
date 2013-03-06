@@ -18,7 +18,7 @@ All behaviors sensibilities are modifiable.
 
 Include the plugin into your html, if you want to connect with Google Analytics you must also include the GA file like below.
 
-	<script src="js/jquery.behaviorminer.min.js" type="text/javascript"></script>
+	<script src="js/dist/jquery.behaviorminer.min.js" type="text/javascript"></script>
 	<!-- below is the google analitycs plugin -->
 	<script src="js/connectors/ga.js" type="text/javascript"></script>
 

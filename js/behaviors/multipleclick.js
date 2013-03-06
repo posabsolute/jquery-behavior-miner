@@ -2,7 +2,7 @@
 	$.behaviorMiner.behaviors.multipleclick = {
 		load : function()  {
             var self = this;
-            $(document).on("click", "*", function(event){
+            $(document).on("click.behaviorMiner", "*", function(event){
                 event.stopPropagation();
                 var elem = this,
                     $elem = jQuery(elem),
